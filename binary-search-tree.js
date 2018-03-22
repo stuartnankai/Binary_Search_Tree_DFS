@@ -1,6 +1,6 @@
 // insert()
 // left or right sub tree
-// DFS in-order 
+// DFS in-order
 
 function Bst(data) {
     this.data = data;
@@ -26,10 +26,11 @@ Bst.prototype.insert = function (value) {
 };
 
 
-Bst.prototype.each = function (iteratorFunc) { // sorted array, need use DFS (in-order)
-    if (this.left) this.left.each(iteratorFunc);
-    iteratorFunc(this.data);
-    if (this.right) this.right.each(iteratorFunc);
+Bst.prototype.each = function (iteratorFunc) {
+    // sorted, need use DFS (in-order)
+    if (this.left) this.left.each(iteratorFunc); // go to left in order to find smaller number
+    iteratorFunc(this.data); // otherwise, use this data
+    if (this.right) this.right.each(iteratorFunc); // find the number which is bigger than this.data
 };
 
 
